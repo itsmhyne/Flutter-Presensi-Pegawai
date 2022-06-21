@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "31041911415",
+    "project_id": "mhypresence",
+    "storage_bucket": "mhypresence.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31041911415:android:f47af6039c3ead43546472",
+        "android_client_info": {
+          "package_name": "com.mhyself.mhygetcli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31041911415-io0sat2bvnq4u52tg62tmfuj3d01cgpu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9hk1xjrnDnhPjya318AEYCvOhdxJDvG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31041911415-io0sat2bvnq4u52tg62tmfuj3d01cgpu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
