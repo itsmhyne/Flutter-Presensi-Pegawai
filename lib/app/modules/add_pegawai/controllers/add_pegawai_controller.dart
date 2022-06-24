@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AddPegawaiController extends GetxController {
-  //TODO: Implement AddPegawaiController
-
-  // kuldii project
+  RxBool isLoading = false.obs;
 
   TextEditingController nipC = TextEditingController();
   TextEditingController nameC = TextEditingController();
@@ -41,11 +39,14 @@ class AddPegawaiController extends GetxController {
           ),
           actions: [
             OutlinedButton(onPressed: () => Get.back(), child: Text("Cancel")),
-            ElevatedButton(
-                onPressed: () async {
-                  await prosesTambahPegawai();
-                },
-                child: Text("Add Pegawai"))
+            Obx(() => ElevatedButton(
+                  onPressed: () async {
+                    if (isLoading.isFalse) {
+                      await prosesTambahPegawai();
+                    }
+                  },
+                  child: Text(isLoading.isFalse ? "Add Pegawai" : "Loading..."),
+                ))
           ]);
     } else {
       print("kosong");
@@ -55,6 +56,7 @@ class AddPegawaiController extends GetxController {
 
   Future<void> prosesTambahPegawai() async {
     if (passwordAdminC.text.isNotEmpty) {
+      isLoading.value = true;
       try {
         String emailAdmin = auth.currentUser!.email!;
 
@@ -84,19 +86,24 @@ class AddPegawaiController extends GetxController {
           // relogin
           final userCredential = await auth.signInWithEmailAndPassword(
               email: emailAdmin, password: passwordAdminC.text);
+          isLoading.value = false;
           Get.back(); //close dialog
           Get.back(); //vback to home
           Get.snackbar("Success!", "Berhasil menambahkan pegawai!");
         }
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
+          isLoading.value = false;
           Get.snackbar("Terjadi Kesalahan", "Password terlalu singkat");
         } else if (e.code == 'email-already-in-use') {
+          isLoading.value = false;
           Get.snackbar("Terjadi Kesalahan", "Email sudah digunakan");
         } else {
+          isLoading.value = false;
           Get.snackbar("Failure!", e.code);
         }
       } catch (e) {
+        isLoading.value = false;
         print(e);
         Get.snackbar("Terjadi Kesalahan", "Tidak dapat menambahkan pegawai");
       }
