@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:get/get.dart';
 
 import 'package:mhygetcli/app/modules/add_pegawai/bindings/add_pegawai_binding.dart';
