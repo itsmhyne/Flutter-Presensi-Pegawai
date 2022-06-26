@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:mhygetcli/app/routes/app_pages.dart';
 
 import '../controllers/login_controller.dart';
 
@@ -153,7 +154,7 @@ class LoginView extends GetView<LoginController> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          controller.forgot();
+                          Get.toNamed(Routes.FORGOT_PASSWORD);
                         },
                         child: Text(
                           "Forgot Password",
