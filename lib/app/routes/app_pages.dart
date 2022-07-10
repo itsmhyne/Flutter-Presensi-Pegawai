@@ -10,6 +10,8 @@ import 'package:mhygetcli/app/modules/login/bindings/login_binding.dart';
 import 'package:mhygetcli/app/modules/login/views/login_view.dart';
 import 'package:mhygetcli/app/modules/new_password/bindings/new_password_binding.dart';
 import 'package:mhygetcli/app/modules/new_password/views/new_password_view.dart';
+import 'package:mhygetcli/app/modules/profile/bindings/profile_binding.dart';
+import 'package:mhygetcli/app/modules/profile/views/profile_view.dart';
 
 // ignore_for_file: constant_identifier_names
 
@@ -18,7 +20,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.PROFILE;
 
   static final routes = [
     GetPage(
@@ -45,6 +47,11 @@ class AppPages {
       name: _Paths.FORGOT_PASSWORD,
       page: () => ForgotPasswordView(),
       binding: ForgotPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => ProfileView(),
+      binding: ProfileBinding(),
     ),
   ];
 }

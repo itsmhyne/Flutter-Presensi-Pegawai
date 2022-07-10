@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +15,8 @@ class HomeView extends GetView<HomeController> {
         title: Text('HomeView'),
         actions: [
           IconButton(
-              onPressed: () => Get.toNamed(Routes.ADD_PEGAWAI),
-              icon: Icon(Icons.person_add))
+              onPressed: () => Get.toNamed(Routes.PROFILE),
+              icon: Icon(Icons.person))
         ],
       ),
       body: Center(

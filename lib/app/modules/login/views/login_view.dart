@@ -10,7 +10,6 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Container(
             child: Column(
